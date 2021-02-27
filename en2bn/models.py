@@ -22,4 +22,4 @@ class ABValue(models.Model):
     p_hash_indx = models.BigIntegerField()
     a = models.IntegerField()
     b = models.IntegerField()
-    m = models.IntegerField(default=31)
+    m = models.IntegerField(default=1)
