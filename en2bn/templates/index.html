@@ -6,23 +6,28 @@
 
 </header>
 
-<body>
-<div class="justify-content-center">
-  <div class="card mx-auto">
-    <div class="card-header">
+<body class="bg-dark">
+<div class="justify-content-center container h-100">
+  <div class="card mx-auto h-100">
+    <div class="card-header text-center">
       Search Dictionary
     </div>
-    <div class="card-body">
-        <div id="form">
+    <div class="card-body bg-secondary">
+        <div id="form" class="text-center form-control-lg rounded">
             <input type="text" id="search">
         </div>
         <br>
-         <input type="submit" id="click">
-    </div>
+        <div class="text-center">
+            <input type="submit" id="click" class="btn btn-primary">
+        </div>
 
-      <div id="showResult">
+        <br>
+        <div id="showResult" class="text-white">
 
       </div>
+    </div>
+
+
 
 </body>
 
@@ -43,11 +48,18 @@
                 method : 'GET',
                 data : { "word" : word },
                 success : function(result){
-                    var txt2 = $("<span></span>").text(result['bn']);
+                    var txt2 = result['bn'];
                     var syns = result['en_syns'].split("'")
                     var text_syns = ""
                     for(i = 1; i < syns.length - 1; i++){
                         text_syns += (syns[i] + " ");
+                    }
+
+                    var bn_syns = result['bn_syns'].split("'")
+                    bn_text_syns = ""
+
+                    for(i = 1; i < bn_syns.length - 1; i++){
+                        bn_text_syns += (bn_syns[i] + " ")
                     }
                     console.log(text_syns);
                     var txt1 = $("<span></span>").text(text_syns);
@@ -58,7 +70,7 @@
                     $('#showResult').append($("<p></p>").html("<b>Synonyms</b>"));
                     $('#showResult').append(txt1);
                     $('#showResult').append($("<p></p>").html("<b>Meaning</b>"));
-                    $('#showResult').append(txt2);
+                    $('#showResult').append(txt2 + "  ," + bn_text_syns);
                     $('#showResult').append($("<p></p>").html("<b>Sentence</b>"));
                     $('#showResult').append(txt_html)
                 }

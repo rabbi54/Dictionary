@@ -27,7 +27,7 @@ def search(request):
     s_hash = calculateSecondHash(key, a, b, m)
     w = WordList.objects.get(p_hash_indx=p_hash, s_hash_indx=s_hash)
     print(w)
-    if w:
+    if w.en == word:
         serializer = WordSerializer(w)
         return Response(serializer.data)
 
