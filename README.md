@@ -8,7 +8,7 @@ an unique combination of primary hash key and secondary hash key using the conce
 of perfect hashing and save those information to database also. In case of searching i used those 
 hashing keys generated from the word 
 
-##Statistics 
+## Statistics 
 _This result may vary_ <br>
 **Total slot :** 9931 <br>
 **Total word :** 16912 <br>
@@ -20,7 +20,7 @@ _This result may vary_ <br>
 
 #### The backbone of this application is in Python (Django Framework)   
 
-##Installation on local machine
+## Installation on local machine
 1. Create a virtual environment. 
 ```python3 -m venv [name]```
 2. Activate the virtual environment.
@@ -36,6 +36,6 @@ _This result may vary_ <br>
 7. Run the server
 ```python manage.py runserver```
 
-##Dataset
+## Dataset
 Dataset collected and combined from this [repository](https://github.com/MinhasKamal/BengaliDictionary).
 
