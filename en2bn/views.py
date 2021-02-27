@@ -19,12 +19,14 @@ def search(request):
     word = request.GET['word'].strip().casefold()
     key = string2number(word)
     p_hash = calculateFirstHash(key)
+    print(p_hash)
     abm = ABValue.objects.get(p_hash_indx=p_hash)
     a = abm.a
     b = abm.b
     m = abm.m
 
     s_hash = calculateSecondHash(key, a, b, m)
+    print(s_hash)
     w = WordList.objects.get(p_hash_indx=p_hash, s_hash_indx=s_hash)
     print(w)
     if w.en == word:

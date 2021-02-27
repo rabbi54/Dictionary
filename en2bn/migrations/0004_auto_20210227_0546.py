@@ -44,7 +44,7 @@ def seedData(apps, schema_editor):
 
         # collision happened after changing m
         while word_list.objects.filter(p_hash_indx=p_hash,
-                                       s_hash_indx=s_hash) and not first_time:  # while the second hash isn't unique repeat
+                                       s_hash_indx=s_hash) and flag_collision and not first_time:  # while the second hash isn't unique repeat
             new_a = random.randint(1, PRIME)
             new_b = random.randint(0, PRIME)
             s_hash = calculateSecondHash(key, new_a, new_b, m)
